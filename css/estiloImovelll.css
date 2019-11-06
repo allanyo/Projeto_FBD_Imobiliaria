@@ -1,0 +1,50 @@
+
+  body {
+    background-color: rgb(132, 196, 196);
+  }
+
+ 
+  button{
+    width: 15%;
+    height: 40px;
+    background: rgb(132, 196, 196);
+    color: #fff;
+    border: double;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+   
+}
+
+input[type=text] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+h1 {
+
+  color: #01080c;
+  background-color: rgb(138, 205, 243);
+  font-size: 45px;
+  font-family: ' sans-serif';
+  text-align: center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  border-bottom: rgb(253, 251, 251) double 5px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  
+  
+}
+h2{
+    font-family: ' sans-serif';
+    text-align: center;
+}
+
+p{
+  color: red;
+}
