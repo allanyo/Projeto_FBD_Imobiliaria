@@ -1,5 +1,5 @@
 <?php
-//ligação com o arq de conexão db_connect.php
+//ligação com o arq de conexão db_connect.php - teste de commit
 require_once 'db_connect.php';
 
 //sessões 
