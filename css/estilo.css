@@ -1,11 +1,11 @@
 body {
-    background-color: rgb(132, 196, 196);
+    background-color: rgb(196, 132, 191);
   }
 
   div {
     height: 260px;
     width: 20%;
-    background-color: rgb(113, 180, 206);
+    background-color: rgb(206, 113, 152);
     margin: auto;
     text-align: center;
   }
