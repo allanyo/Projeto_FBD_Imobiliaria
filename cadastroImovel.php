@@ -6,7 +6,9 @@ require_once 'db_connect.php';
 session_start();
 
 
-    $proprietario_id = $_GET['proprietario_id'];
+
+    $proprietario_id= isset( $_GET[ 'proprietario_id' ] ) ? $_GET[ 'proprietario_id' ] : null ;
+   // $proprietario_id = $_GET['proprietario_id'];
 
     $sql = "SELECT * FROM proprietario 
     where proprietario_id = '$proprietario_id' ";

@@ -1,6 +1,4 @@
-body {
-    background-color: rgb(132, 196, 196);
-  }
+
 
   div {
     height: 400px;
@@ -14,7 +12,7 @@ body {
     height: 40px;
     float: left;
     border: 1px solid green;
-    background: rgb(132, 196, 196);
+    background: rgb(196, 132, 159);
     color: #fff;
     border: double;
     border-radius: 8px;
@@ -38,14 +36,14 @@ input{
 h1 {
 
   color: #01080c;
-  background-color: rgb(138, 205, 243);
+  background-color: rgb(243, 138, 138);
   font-size: 45px;
   font-family: ' sans-serif';
   text-align: center;
   padding-top: 35px;
   padding-bottom: 35px;
-  border-bottom: rgb(253, 251, 251) double 5px;
-  color: white;
+  border-bottom: rgb(190, 6, 6) double 5px;
+  color: rgb(14, 236, 44);
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
   
   
