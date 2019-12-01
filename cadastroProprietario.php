@@ -7,7 +7,7 @@ session_start();
 
 
 // PEGA A AÇÃO DO BOTÃO ENVIAR 
-if(isset($_POST['btn-salvar'])):// NOME DO BOTÃƒO 
+if (isset($_POST['btn-salvar'])) : // NOME DO BOTÃƒO 
 
     $rua = mysqli_escape_string($connect, $_POST['rua']);
     $bairro = mysqli_escape_string($connect, $_POST['bairro']);
@@ -24,37 +24,39 @@ if(isset($_POST['btn-salvar'])):// NOME DO BOTÃƒO
     $telefone = mysqli_escape_string($connect, $_POST['telefone']);
     $celular = mysqli_escape_string($connect, $_POST['celular']);
     $email = mysqli_escape_string($connect, $_POST['email']);
-  
 
 
-    if(empty($codigo_proprietario)or empty($nome)or empty($rg)or empty($cpf)or empty($telefone)or empty($celular)or empty($email)
-    or empty($rua)or empty($bairro)or empty($numero)or empty($cep)or empty($cidade)or empty($estado)or empty($pais)):
+
+    if (
+        empty($codigo_proprietario) or empty($nome) or empty($rg) or empty($cpf) or empty($telefone) or empty($celular) or empty($email)
+        or empty($rua) or empty($bairro) or empty($numero) or empty($cep) or empty($cidade) or empty($estado) or empty($pais)
+    ) :
         $erros[] = "<li> Preecha todos os campos</li>";
-    else:
-    
+    else :
+
         $sqlendereco = " INSERT INTO endereco(rua,bairro,numero,cep,cidade,estado,pais) values ('$rua','$bairro','$numero','$cep','$cidade','$estado','$pais')";
 
-        if(mysqli_query($connect,  $sqlendereco)):
+        if (mysqli_query($connect,  $sqlendereco)) :
             echo 'Cadastrado com sucesso!';
-        else:
+        else :
             echo 'erro';
         endif;
 
 
-     $sqlproprietario = " INSERT INTO proprietario(codigo_proprietario,nome,rg,cpf,telefone,celular,email,enderecoPId) values ('$codigo_proprietario','$nome','$rg','$cpf','$telefone','$celular','$email', LAST_INSERT_ID())";
+        $sqlproprietario = " INSERT INTO proprietario(codigo_proprietario,nome,rg,cpf,telefone,celular,email,enderecoPId) values ('$codigo_proprietario','$nome','$rg','$cpf','$telefone','$celular','$email', LAST_INSERT_ID())";
 
-   
-        if(mysqli_query($connect, $sqlproprietario)):
+
+        if (mysqli_query($connect, $sqlproprietario)) :
             echo 'Cadastrado com sucesso!';
-        else:
+        else :
             echo 'erro';
         endif;
 
     endif;
-  
+
 endif;
 
-if(isset($_POST['btn-voltar'])):
+if (isset($_POST['btn-voltar'])) :
     header('Location: home.php');
 endif;
 
@@ -62,59 +64,134 @@ endif;
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/estiloImovelll.css" />
-    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/estiloTelasDeCadastro.css" />
+
     <title>Imobiliaria</title>
 </head>
+
 <body>
-    <h1> Imobiliaria Rocha <i class="glyphicon glyphicon-map-marker"></i></h1>
-    <h2> <i class="glyphicon glyphicon-user"></i> Cadastro de proprietario</h2><br>
- 
-    <hr>
+
+
     <?php
-        if(!empty($erros)):
-            foreach($erros as $erro):
-                echo $erro;
-            endforeach;
-        endif;
+    if (!empty($erros)) :
+        foreach ($erros as $erro) :
+            echo $erro;
+        endforeach;
+    endif;
     ?>
-    
-    <div>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                
-                Código Proprietario: &nbsp<input type="text" name="codigo_proprietario"><br>
-                Nome:  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="nome"><br>
-                RG:  &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="rg">&nbsp&nbsp&nbsp&nbsp&nbsp
-                CPF: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="cpf">&nbsp&nbsp&nbsp&nbsp&nbsp
-                Telefone: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="telefone">&nbsp&nbsp&nbsp&nbsp&nbsp
-                celular: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="celular"><br>
-                E-mail: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="email">
-                
 
-                <h2> <i class="glyphicon glyphicon-map-marker"></i> Endereço</h2><br>
-                
-                Rua: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="rua"> <br>
-                Bairro: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="bairro"> &nbsp&nbsp&nbsp&nbsp&nbsp
-                Nº:   &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="numero"><br>
-                CEP: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="cep">&nbsp&nbsp&nbsp&nbsp&nbsp
-                Cidade: &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="cidade"><br>
-                Estado: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="estado">&nbsp&nbsp&nbsp&nbsp&nbsp 
-                País: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="pais"><br>
-                <center>
-                <button type="submit" name="btn-salvar">Salvar</button>
-                <button type="submit" name="btn-voltar">Voltar</button>
 
-                </center>
-                
-        </form>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3> <i class="glyphicon glyphicon-user"></i> Cadastro de Proprietario</h3>
+                </div>
+
+
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="codigo_proprietario" placeholder="Codigo do  Proprietario ">
+
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="nome" placeholder="Nome">
+                        <input type="text" class="form-control" name="email" placeholder="Email">
+
+                    </div>
+
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="telefone" placeholder="Telefone">
+                        <input type="text" class="form-control" name="celular" placeholder="Celular">
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="rg" placeholder="RG">
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF">
+                    </div>
+
+
+
+                    <div class="card-header">
+                        <h5> <i class="glyphicon glyphicon-user"></i> Endereço</h5>
+                    </div>
+
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="rua" placeholder="Rua">
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="bairro" placeholder="Bairro">
+                        <input type="text" class="form-control" name="numero" placeholder="Nº">
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="cidade" placeholder="Cidade">
+                        <input type="text" class="form-control" name="cep" placeholder="CEP">
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="estado" placeholder="Estado">
+                        <input type="text" class="form-control" name="pais" placeholder="País">
+                    </div>
+
+
+
+
+                    <center>
+                        <button type="submit" name="btn-salvar">Salvar</button>
+                        <button type="submit" name="btn-voltar">Voltar</button>
+
+                    </center>
+
+                </form>
+            </div>
+        </div>
     </div>
 
 
-    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
+
+
 </body>
+
 </html>
