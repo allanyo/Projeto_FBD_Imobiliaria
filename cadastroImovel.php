@@ -34,7 +34,7 @@ endif;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/estiloImovelll.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/estiloImovelll.css" />
 
     <title>Imobiliaria</title>
 </head>
@@ -42,7 +42,7 @@ endif;
 <body>
 
 
-   
+
     <div class="container">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
@@ -60,7 +60,7 @@ endif;
                     ?>
 
 
-                    
+
                     <form action="updateImovel.php?proprietario_id=<?php echo $row_proprietario['proprietario_id']; ?>" method="POST">
 
                         <div class="input-group form-group">
@@ -88,7 +88,7 @@ endif;
                             <input type="text" class="form-control" name="tipo" placeholder="Tipo: Casa, Ap ...">
                         </div>
 
-                        
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -96,11 +96,11 @@ endif;
                             <input type="text" class="form-control" name="area" placeholder="Área">
                             <input type="text" class="form-control" name="valor" placeholder="Valor">
                         </div>
-     
+
 
 
                         <h5>status: </h5>
-                        <select name="status">                           
+                        <select name="status">
                             <option value="Para vender">Para vender</option>
                             <option value="Alugado">Alugado</option>
                             <option value="Para alugar">Para alugar</option>
@@ -115,7 +115,12 @@ endif;
                             </div>
                             <input type="text" class="form-control" name="informacoes" placeholder="Informações Adicionais ">
                         </div>
-                        <h2> <i class="glyphicon glyphicon-map-marker"></i> Localizção</h2><br>
+
+
+                        
+                    <div class="card-header">
+                        <h5> <i class="glyphicon glyphicon-user"></i> Endereço</h5>
+                    </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -140,7 +145,7 @@ endif;
                             <input type="text" class="form-control" name="cep" placeholder="CEP">
                         </div>
 
-                        
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
