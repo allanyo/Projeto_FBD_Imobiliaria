@@ -34,7 +34,7 @@ endif;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-     <!--<link rel="stylesheet" type="text/css" href="css/estiloImovelll.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/estiloImovelll.css" /> 
 
     <title>Imobiliaria</title>
 </head>
@@ -42,7 +42,7 @@ endif;
 <body>
 
 
-    <h1> Imobiliaria Rocha <i class="glyphicon glyphicon-map-marker"></i></h1>
+   
     <div class="container">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
@@ -51,9 +51,6 @@ endif;
                 </div>
                 <div class="card-body">
 
-
-
-                    <hr>
                     <?php
                     if (!empty($erros)) :
                         foreach ($erros as $erro) :
@@ -63,7 +60,7 @@ endif;
                     ?>
 
 
-                    <h2> <i class="glyphicon glyphicon-user"></i> Cadastro de imóvel</h2>
+                    
                     <form action="updateImovel.php?proprietario_id=<?php echo $row_proprietario['proprietario_id']; ?>" method="POST">
 
                         <div class="input-group form-group">
@@ -72,52 +69,86 @@ endif;
                             </div>
                             <input type="text" class="form-control" name="codigo_imovel" placeholder="  Código Imóvel">
                         </div>
+                        <h7>Codigo Propietario</h7>
+                        <div class="input-group form-group">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name="codigo_proprietario" placeholder="  Código proprietario" readonly=“true” value="
+                          <?php echo $row_proprietario['codigo_proprietario']; ?>">
+
+                            <button type="submit" name="btn-buscar">buscar</button><br>
+                        </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-
-                          
-                          
-                          <input type="text" name="codigo_proprietario" placeholder="  Código proprietario" readonly=“true” value="
-                          <?php echo $row_proprietario['codigo_proprietario']; ?>"> &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <button type="submit" name="btn-buscar">buscar</button><br>
+                            <input type="text" class="form-control" name="tipo" placeholder="Tipo: Casa, Ap ...">
                         </div>
 
+                        
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="area" placeholder="Área">
+                            <input type="text" class="form-control" name="valor" placeholder="Valor">
+                        </div>
+     
 
-
-                        Código proprietario: <input type="text" name="codigo_proprietario" readonly=“true” value="
-                          <?php echo $row_proprietario['codigo_proprietario']; ?>"> &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <button type="submit" name="btn-buscar">buscar</button><br>
-                        Tipo: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="tipo">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        Área: &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="area"><br>
-                        Valor: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="valor">&nbsp&nbsp&nbsp&nbsp&nbsp
 
                         <h5>status: </h5>
-                        <select name="status">
-                            <option value="Vendido">Vendido</option>
-                            <option value="Para vender">Para veder</option>
+                        <select name="status">                           
+                            <option value="Para vender">Para vender</option>
                             <option value="Alugado">Alugado</option>
                             <option value="Para alugar">Para alugar</option>
-                        </select><br>
+                            <option value="Vendido">Vendido</option>
+                        </select><br><br>
 
 
 
-
-
-                        Informações: &nbsp&nbsp&nbsp<input type="text" name="informacoes">
-
-
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="informacoes" placeholder="Informações Adicionais ">
+                        </div>
                         <h2> <i class="glyphicon glyphicon-map-marker"></i> Localizção</h2><br>
 
-                        Rua: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="rua"> <br>
-                        Bairro: &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="bairro"> &nbsp&nbsp&nbsp&nbsp&nbsp
-                        Nº: &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="numero"><br>
-                        CEP: &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="cep">&nbsp&nbsp&nbsp&nbsp&nbsp
-                        Cidade: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="cidade"><br>
-                        Estado: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="estado">&nbsp&nbsp&nbsp&nbsp&nbsp
-                        País: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="pais"><br>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="rua" placeholder="Rua">
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="bairro" placeholder="Bairro">
+                            <input type="text" class="form-control" name="numero" placeholder="Nº">
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="cidade" placeholder="Cidade">
+                            <input type="text" class="form-control" name="cep" placeholder="CEP">
+                        </div>
+
+                        
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="estado" placeholder="Estado">
+                            <input type="text" class="form-control" name="pais" placeholder="País">
+                        </div>
+
                         <center>
                             <button type="submit" name="btn-salvar">Salvar</button>
                             <button type="submit" name="btn-voltar">Voltar</button>
