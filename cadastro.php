@@ -43,11 +43,11 @@ endif;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/estilocadastro.css" />
     
-    <title>Imobiliaria</title>
+    <title>Tela de  Cadastro Novo Usuario</title>
 </head>
 <body>
-    <h1> Imobiliaria Rocha <i class="glyphicon glyphicon-map-marker"></i></h1>
-    <h2> <i class="glyphicon glyphicon-user"></i> Cadastre seu login</h2><br>
+    <h1> Sistema Imobiliario <i class="glyphicon glyphicon-map-marker"></i></h1>
+    
  
     <hr>
     <?php
@@ -58,6 +58,8 @@ endif;
         endif;
     ?>
     <div>
+    <br><h4> <i class="glyphicon glyphicon-user"></i> Cadastre seu login</h2>
+ 
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 Nome: <input type="text" name="nome"><br>
                 Sobrenome: <input type="text" name="sobrenome"><br>

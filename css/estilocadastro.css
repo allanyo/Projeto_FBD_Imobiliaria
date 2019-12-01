@@ -1,18 +1,28 @@
-body {
+/*body {
     background-color: rgb(132, 196, 196);
   }
+*/
+  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('../imagens/imgFundo.jpg');
+background-size: cover;
+
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
 
   div {
-    height: 370px;
+    height: 440px;
     width: 30%;
-    background-color: rgb(113, 180, 206);
+    background-color: rgb(201, 157, 128);
     margin: auto;
     text-align: center;
   }
   button{
     width: 45%;
     height: 40px;
-    background: rgb(132, 196, 196);
+    background:  rgb(131, 96, 73);
     color: #fff;
     border: double;
     border-radius: 8px;
@@ -33,10 +43,10 @@ input{
   
 }
 
-h1 {
+h1,h2 {
 
   color: #01080c;
-  background-color: rgb(138, 205, 243);
+ 
   font-size: 45px;
   font-family: ' sans-serif';
   text-align: center;
@@ -44,11 +54,8 @@ h1 {
   padding-bottom: 35px;
   border-bottom: rgb(253, 251, 251) double 5px;
   color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(130, 130, 182), 0 0 5px rgb(73, 73, 87);
   
   
 }
-h2{
-    font-family: ' sans-serif';
-    text-align: center;
-}
+
