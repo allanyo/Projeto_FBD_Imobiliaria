@@ -12,80 +12,82 @@ $sql = "SELECT parcela.codigo_parcelas,parcela.cod_cliente,parcela.quantidade_pa
  where  parcela.codigo_parcelas = $codigoP ";
 $resultado = mysqli_query($connect, $sql);
 
-if(isset($_POST['btn-voltar'])):
+if (isset($_POST['btn-voltar'])) :
   header('Location: buscaImovel.php');
 endif;
 
-if(isset($_POST['editar'])):
+if (isset($_POST['editar'])) :
   header('Location: editarCliente.php');
 endif;
-
+$i = 0;
 
 ?>
 
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="css/estilobuscacliente.css" />
-  <title>Produtos</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/estiloTelasDeCadastro.css" />
+
+  <title>Parcelas</title>
 </head>
+
 <body>
-  <h1>Parcelas</h1><br>
-
- 
-  <div>
-  
-</div><br><br><br>
-  <table >
-    <tr>
-
-      <td>CODIGO DA PARCELA</td>
-      <td>VALOR</td>
-      <td>STATUS</td>
-      
-     
-
-    </tr>
+  <br>
+  <h1 class="text-center">Parcelas</h1><br>
 
 
-    <?php  while($dado = mysqli_fetch_array($resultado)) { ?>
-     
-    <tr>
-      
-    <td><?php echo $dado['codigo_parcelas'];?></td>
-      <td><?php echo $dado['valor'];?></td>
-      <td><?php echo $dado['status']; ?></td>
-     
-      
-      <td>
-           <div>
-           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">                       
-           <a href="baixaImoveis.php?parcela_id=<?php echo $dado['parcela_id']?>"> Dar baixa</a>  &nbsp&nbsp&nbsp&nbsp                       
-           <a href="buscaClienteImovel.php?cod_cliente=<?php echo $dado['cod_cliente']?>">Ver cliente</a>
-         </form> 
-                                
-          </div> 
-      
-      </td>
-     
+
+
+  <table class="table table-hover  text-center">
+    <thead class="thead-dark ">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">CODIGO DA PARCELA</th>
+        <th scope="col">VALOR</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">OPCÕES</th>
 
       </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <?php while ($dado = mysqli_fetch_array($resultado)) { ?>
 
-      
-    <?php 
-  }
+      <tr class="table-secondary">
+        <th scope="row"><?php echo $i += 1; ?></th>
+        <td><?php echo $dado['codigo_parcelas']; ?></td>
+        <td><?php echo $dado['valor']; ?></td>
+        <td><?php echo $dado['status']; ?></td>
+
+        <td>
+          <div>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <a href="baixaImoveis.php?parcela_id=<?php echo $dado['parcela_id'] ?>"> Dar baixa</a> &nbsp&nbsp&nbsp&nbsp
+              <a href="buscaClienteImovel.php?cod_cliente=<?php echo $dado['cod_cliente'] ?>">Ver cliente</a>
+            </form>
+
+          </div>
+
+        </td>
+
+      </tr>
+    <?php }
     ?>
+
   </table>
 
-<br><br><br><br>
+  <br><br><br><br>
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-  <button type="submit" name="btn-voltar">Voltar 
+    <button type="submit" name="btn-voltar">Voltar
   </form>
- 
+
 
 </body>
+
 </html>
