@@ -42,6 +42,7 @@ endif;
 
     </tr>
     <?php while($dado = mysqli_fetch_array($resultado)) { ?>
+   
       
     <tr>
       
